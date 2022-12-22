@@ -91,5 +91,53 @@ namespace ECommerce_Scarpe.Models
             connetcionDB.Close();
             return product;
         }
+
+        public static void EditSingleProdtto(Prodotto product)
+        {
+            SqlConnection connetcionDB = new SqlConnection();
+            connetcionDB.ConnectionString = ConfigurationManager.ConnectionStrings["ECommerce_Scarpe"].ToString();
+            connetcionDB.Open();
+
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@IdProdotto", product.IdProdotto);
+            command.Parameters.AddWithValue("@Nome", product.Nome);
+            command.Parameters.AddWithValue("@Prezzo", product.Prezzo);
+            command.Parameters.AddWithValue("@Descrizione", product.Descrizione);
+            command.Parameters.AddWithValue("@ImgCopertina", product.ImgCopertina);
+            command.Parameters.AddWithValue("@ImgDettaglio1", product.ImgDettaglio1);
+            command.Parameters.AddWithValue("@ImgDettaglio2", product.ImgDettaglio2);
+            command.Parameters.AddWithValue("@ControlloVendita", product.ControlloVendita);
+            command.CommandText = "Update Prodotto Set Nome = @Nome, Prezzo = @Prezzo, Descrizione = @Descrizione, ImgCopertina = @ImgCopertina, ImgDettaglio1 = @ImgDettaglio1, ImgDettaglio2 = @ImgDettaglio2, ControlloVendita = @ControlloVendita where IdProdotto = @IdProdotto";
+            command.Connection = connetcionDB;
+
+           command.ExecuteNonQuery();
+
+
+            connetcionDB.Close();
+        }
+
+        public static void AddSingleProdtto(Prodotto product)
+        {
+            SqlConnection connetcionDB = new SqlConnection();
+            connetcionDB.ConnectionString = ConfigurationManager.ConnectionStrings["ECommerce_Scarpe"].ToString();
+            connetcionDB.Open();
+
+            SqlCommand command = new SqlCommand();
+            //command.Parameters.AddWithValue("@IdProdotto", product.IdProdotto);
+            command.Parameters.AddWithValue("@Nome", product.Nome);
+            command.Parameters.AddWithValue("@Prezzo", product.Prezzo);
+            command.Parameters.AddWithValue("@Descrizione", product.Descrizione);
+            command.Parameters.AddWithValue("@ImgCopertina", product.ImgCopertina);
+            command.Parameters.AddWithValue("@ImgDettaglio1", product.ImgDettaglio1);
+            command.Parameters.AddWithValue("@ImgDettaglio2", product.ImgDettaglio2);
+            command.Parameters.AddWithValue("@ControlloVendita", product.ControlloVendita);
+            command.CommandText = "Insert Into Prodotto (Nome,  Prezzo, Descrizione, ImgCopertina, ImgDettaglio1, ImgDettaglio2, ControlloVendita) Values (@Nome,  @Prezzo, @Descrizione, @ImgCopertina, @ImgDettaglio1, @ImgDettaglio2, @ControlloVendita)";
+            command.Connection = connetcionDB;
+
+            command.ExecuteNonQuery();
+
+
+            connetcionDB.Close();
+        }
     }
 }
