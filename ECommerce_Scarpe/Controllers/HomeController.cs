@@ -44,7 +44,7 @@ namespace ECommerce_Scarpe.Controllers
         [HttpPost]
         public ActionResult AddProdotto(Prodotto prodotto, HttpPostedFileBase fileUpload)
         {
-            if(fileUpload.ContentLength > 0)
+            if(fileUpload.ContentLength != 0)
             {
                 string fileName = fileUpload.FileName;
                 string Path = Server.MapPath("/Content/FileUpload/" + fileName);

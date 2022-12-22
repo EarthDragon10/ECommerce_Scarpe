@@ -5,8 +5,11 @@
 }
 
 <div class="container">
-    <div class="row ">
+    <div class="row">
         @Html.ActionLink("Aggiungi Prodotto", "AddProdotto")
+    </div>
+    <div class="row ">
+        
         @foreach (ECommerce_Scarpe.Models.Prodotto item in Model)
         {
             <div class="col-md-4 m-3">
@@ -15,7 +18,8 @@
                     <div class="card-body">
                         <h5 class="card-title">@item.Nome</h5>
                         <p class="card-text">@item.Descrizione</p>
-                        <p><span>@item.Prezzo.ToString("c2")</span><span>@item.ControlloVendita</span></p>
+                        <p>@item.Prezzo.ToString("c2")</p>
+                        <p>In vendita: @item.ControlloVendita</p>
                         @Html.ActionLink("Dettaglio Scarpa", "DetailsProduct", new { id = @item.IdProdotto })
                         @Html.ActionLink("Modifica Prodotto", "GestioneProdotti", new { id = @item.IdProdotto })
                     </div>
