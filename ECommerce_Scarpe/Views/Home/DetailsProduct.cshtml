@@ -1,0 +1,90 @@
+﻿@model ECommerce_Scarpe.Models.Prodotto
+
+@{
+    ViewBag.Title = "DetailsProduct";
+}
+
+<h2>DetailsProduct</h2>
+
+<div>
+    <h4>Prodotto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProdotto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProdotto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezzo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezzo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgCopertina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgCopertina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgDettaglio1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgDettaglio1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgDettaglio2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgDettaglio2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlloVendita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlloVendita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlloInProduzione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlloInProduzione)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
